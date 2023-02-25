@@ -8,6 +8,9 @@ const nextBookingId = (bookings) => {
 const bookingReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_BOOKING:
+            if (state.length >= 3) {
+                return state;
+            }
             return [
                 ...state,
                 {
